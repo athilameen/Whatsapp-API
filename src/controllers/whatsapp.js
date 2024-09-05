@@ -1,7 +1,7 @@
 const fs = require('fs');
 const myConsole = new console.Console(fs.createWriteStream('./log.txt'));
 
-const ReceivedMessage = (req, res) => {
+exports.ReceivedMessage = (req, res) => {
     res.send("EVENT_RECEIVED");
     /*try{
         let entry = (req.body['entry'])[0];
@@ -20,11 +20,6 @@ const ReceivedMessage = (req, res) => {
     }*/
 }
 
-const TVerifyToken = (req, res) => {
+exports.TVerifyToken = (req, res) => {
     res.send("TVerifyToken")
-}
-
-module.exports = {
-    ReceivedMessage,
-    TVerifyToken
 }
