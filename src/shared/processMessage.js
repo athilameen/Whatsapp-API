@@ -12,6 +12,11 @@ async function process(textUser, number){
     } else if(textUser.includes("hello")){
         const model = whatsappModel.messageText("Hello! How may I assist you?", number);
         models.push(model);
+    } else if(textUser.includes("event")){
+        const model = whatsappModel.messageText("Yes! Food festival going", number);
+        models.push(model);
+        const list = whatsappModel.messageList(number);
+        models.push(list);
     } else if(textUser.includes("bye") || textUser.includes("good bye")){
         const model = whatsappModel.messageText("Goodbye! Have a great day!", number);
         models.push(model);
