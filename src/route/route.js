@@ -4,6 +4,7 @@ const router = app.Router();
 const whatsappController = require("../controllers/WhatsappControllers")
 
 router.get("/whatsapp", whatsappController.VerifyToken).post("/whatsapp", whatsappController.ReceivedMessage);
+router.get("/twhatsapp", whatsappController.TVerifyToken).post("/twhatsapp", whatsappController.TReceivedMessage);
 
 router.get("/log", (req, res) => {
     

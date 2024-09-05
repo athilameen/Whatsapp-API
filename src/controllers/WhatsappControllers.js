@@ -45,7 +45,17 @@ const ReceivedMessage = (req, res) => {
 
 }
 
+const TVerifyToken = (req, res) => {
+    res.send("TVerifyToken")
+}
+
+const TReceivedMessage = (req, res) => {
+    res.send("TReceived Message")
+}
+
 module.exports = {
-    VerifyToken, ReceivedMessage,
-    ReceivedMessage
+    VerifyToken,
+    ReceivedMessage,
+    TVerifyToken,
+    TReceivedMessage
 }
