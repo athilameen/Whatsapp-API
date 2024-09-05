@@ -22,6 +22,8 @@ const VerifyToken = (req, res) => {
 }
 
 const ReceivedMessage = (req, res) => {
+
+    res.send("Received Message")
     /*
     try{
 
