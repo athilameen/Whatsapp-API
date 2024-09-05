@@ -1,4 +1,4 @@
-function sendText(number, message){
+function sendText(message, number){
 
     const data = {
         "messaging_product": "whatsapp",

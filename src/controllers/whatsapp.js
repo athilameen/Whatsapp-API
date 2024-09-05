@@ -59,7 +59,7 @@ exports.ReceivedMessage = async (req, res) => {
             //logToFile(`Received data: ${JSON.stringify(value)}`);
             const number = messages['from'];
 
-            const sendType = messageData;
+            const sendType = messageData;            
 
             if(sendType === "text"){
                 const data = sendON.sendImage("I am a "+messageData, number);
