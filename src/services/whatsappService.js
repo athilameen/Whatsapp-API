@@ -1,16 +1,6 @@
 const axios = require('axios');
 
-exports.whatsappService = async (message, number) => {
-
-    const data = {
-        "messaging_product": "whatsapp",
-        "to": number,
-        "recipient_type": "individual",
-        "type":"text",
-        "text":{
-            "body": message
-        }
-    };
+exports.whatsappService = async (data) => {
 
     const url = process.env.metaURL;
     const token = process.env.whatsAppAccessToken;
