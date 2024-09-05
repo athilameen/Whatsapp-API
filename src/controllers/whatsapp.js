@@ -1,6 +1,7 @@
 const fs = require('fs');
-const {whatsappService} = require('../services/whatsappService');
-const sendON = require('../shared/sendModels');
+//const {whatsappService} = require('../services/whatsappService');
+//const sendON = require('../shared/sendModels');
+const processMessage = require("../shared/processMessage");
 
 let logs = [];
 
@@ -59,10 +60,11 @@ exports.ReceivedMessage = async (req, res) => {
             //logToFile(`Received data: ${JSON.stringify(value)}`);
             const number = messages['from'];
 
-            const sendType = messageData;      
-            console.log(sendType);
-            console.log(number);
-
+            if(messageData){
+                processMessage.process(messageData, number);
+            }
+            
+            /* const sendType = messageData;
             if(sendType === "text"){
                 const data = sendON.sendText("I am a "+messageData, number);
                 await whatsappService(data)
@@ -90,7 +92,7 @@ exports.ReceivedMessage = async (req, res) => {
             } else {
                 const data = sendON.sendText("Don't understand", number);
                 await whatsappService(data)
-            }
+            }*/
 
             //await whatsappService(messageData, number)
             //.then(response => console.log('Success:', response))
