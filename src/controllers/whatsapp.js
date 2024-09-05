@@ -59,10 +59,12 @@ exports.ReceivedMessage = async (req, res) => {
             //logToFile(`Received data: ${JSON.stringify(value)}`);
             const number = messages['from'];
 
-            const sendType = messageData;            
+            const sendType = messageData;      
+            console.log(sendType);
+            console.log(number);
 
             if(sendType === "text"){
-                const data = sendON.sendImage("I am a "+messageData, number);
+                const data = sendON.sendText("I am a "+messageData, number);
                 await whatsappService(data)
             } else if(sendType === "image"){
                 const data = sendON.sendImage(number);
@@ -86,7 +88,7 @@ exports.ReceivedMessage = async (req, res) => {
                 const data = sendON.sendLocation(number);
                 await whatsappService(data)
             } else {
-                const data = sendON.sendImage("Don't understand", number);
+                const data = sendON.sendText("Don't understand", number);
                 await whatsappService(data)
             }
 
