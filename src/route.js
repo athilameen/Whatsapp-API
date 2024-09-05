@@ -8,8 +8,8 @@ const router = express.Router();
 //router.get("/whatsapp", whatsappController.VerifyToken);
 //router.post("/whatsapp", whatsappController.ReceivedMessage);
 
-//router.get("/twhatsapp", whatsappController.TVerifyToken)
-//router.post("/twhatsapp", whatsappController.TReceivedMessage);
+router.get("/twhatsapp", whatsapp.TVerifyToken)
+//router.post("/twhatsapp", whatsapp.TReceivedMessage);
 
 router.get("/log", (req, res) => {
     
