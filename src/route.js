@@ -1,17 +1,20 @@
-const { Router } = require('express')
+const express = require("express");
 const os = require('os')
 const fs = require('fs');
-//const whatsappController = require("./controllers/WhatsappControllers");
+const whatsappController = require("./controllers/WhatsappControllers");
 
-const routes = Router();
+const router = express.Router();
 
-//routes.get("/whatsapp", whatsappController.VerifyToken).post("/whatsapp", whatsappController.ReceivedMessage);
-//routes.get("/twhatsapp", whatsappController.TVerifyToken).post("/twhatsapp", whatsappController.TReceivedMessage);
+//router.get("/whatsapp", whatsappController.VerifyToken);
+//router.post("/whatsapp", whatsappController.ReceivedMessage);
 
-routes.get("/log", (req, res) => {
+router.get("/twhatsapp", whatsappController.TVerifyToken)
+router.post("/twhatsapp", whatsappController.TReceivedMessage);
+
+router.get("/log", (req, res) => {
     
     // Path to the text file
-    const filePath = './log.txt';
+    const filePath = '../log.txt';
 
     // Read the file
     fs.readFile(filePath, 'utf8', (err, data) => {
@@ -25,7 +28,7 @@ routes.get("/log", (req, res) => {
 
 });
 
-routes.get("/health", (req, res) => {
+router.get("/health", (req, res) => {
     const healthInfo = {
         uptime: process.uptime(),
         message: "OK",
@@ -39,4 +42,4 @@ routes.get("/health", (req, res) => {
     res.send(healthInfo);
 });
 
-module.exports = routes;
+module.exports = router;

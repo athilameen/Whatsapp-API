@@ -1,6 +1,6 @@
 const fs = require('fs');
 const myConsole = new console.Console(fs.createWriteStream('./log.txt'));
-
+/*
 const VerifyToken = (req, res) => {
 
     try{
@@ -24,7 +24,7 @@ const VerifyToken = (req, res) => {
 const ReceivedMessage = (req, res) => {
 
     res.send("Received Message")
-    /*
+    
     try{
 
         let entry = (req.body['entry'])[0];
@@ -41,9 +41,9 @@ const ReceivedMessage = (req, res) => {
         myConsole.log(e);
         res.send("EVENT_RECEIVED");
     }
-    */
 
 }
+    */
 
 const TVerifyToken = (req, res) => {
     res.send("TVerifyToken")
@@ -54,8 +54,8 @@ const TReceivedMessage = (req, res) => {
 }
 
 module.exports = {
-    VerifyToken,
-    ReceivedMessage,
+    //VerifyToken,
+   // ReceivedMessage,
     TVerifyToken,
     TReceivedMessage
 }
