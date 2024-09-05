@@ -128,44 +128,44 @@ function sendList(number){
             "type": "list",
             "header": {
                 "type": "text",
-                "text": "Select Options"
+                "text": "Food Festival"
             },
             "body": {
-                "text": "Please select one button"
+                "text": "We have multiple food items"
             },
             "footer": {
                 "text": "by DE"
             },
             "action": {
-                "button": "Selected Options",
+                "button": "Select your favorite food",
                 "sections": [
                     {
-                        "title": "One options",
+                        "title": "Vegetarian",
                         'rows': [
                             {
-                                "id": "first-option",
-                                "title": "Option First",
-                                "description": "This is the option one" 
+                                "id": "full-meals",
+                                "title": "Full Meals",
+                                "description": "Explore The Best Full Meals" 
                             },
                             {
-                                "id": "sec-option",
-                                "title": "Option Second",
-                                "description": "This is the option two" 
+                                "id": "curd-rice",
+                                "title": "Curd Rice",
+                                "description": "Explore The Best Curd Rice" 
                             }
                         ]
                     },
                     {
-                        "title": "Two options",
+                        "title": "Non-Vegetarian",
                         'rows': [
                             {
-                                "id": "first-two-option",
-                                "title": "Option First Sec",
-                                "description": "This is the option one sec" 
+                                "id": "biryani",
+                                "title": "Biryani",
+                                "description": "Explore The Best Mutton Biryani" 
                             },
                             {
-                                "id": "sec-two-option",
-                                "title": "Option Second Sec",
-                                "description": "This is the option two sec" 
+                                "id": "chicken-noodles",
+                                "title": "Chicken Noodles",
+                                "description": "Explore The Best Chicken Noodles" 
                             }
                         ]
                     }
