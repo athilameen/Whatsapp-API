@@ -1,4 +1,6 @@
 const fs = require('fs');
+const {whatsappService} = require('../services/whatsappService');
+
 let logs = [];
 
 /* Cloud storage: AWS S3, Google Cloud Storage, etc
@@ -51,9 +53,13 @@ exports.ReceivedMessage = (req, res) => {
 
         if(typeof messageObject != "undefined"){
             let messages = messageObject[0];
-            let getData = getTextUser(messages);
-            logToMemory(`Received data: ${getData}`);
+            let messageData = getTextUser(messages);
+            logToMemory(`Received data: ${messageData}`);
             //logToFile(`Received data: ${JSON.stringify(value)}`);
+            const number = messages['from'];
+            whatsappService(messageData, number)
+                //.then(response => console.log('Success:', response))
+                //.catch(err => console.error('Request failed:', err));
         }
         
         res.send("EVENT_RECEIVED");
