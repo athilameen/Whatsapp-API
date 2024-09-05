@@ -5,11 +5,10 @@ const whatsapp = require("./controllers/whatsapp");
 
 const router = express.Router();
 
-//router.get("/whatsapp", whatsappController.VerifyToken);
+router.get("/whatsapp", whatsapp.VerifyToken);
 router.post("/whatsapp", whatsapp.ReceivedMessage);
 
 router.get("/twhatsapp", whatsapp.TVerifyToken)
-//router.post("/twhatsapp", whatsapp.TReceivedMessage);
 
 router.get("/log", (req, res) => {
     
