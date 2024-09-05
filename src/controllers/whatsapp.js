@@ -1,5 +1,7 @@
 const fs = require('fs');
+let logs = [];
 
+/* Cloud storage: AWS S3, Google Cloud Storage, etc
 const logToFile = (message) => {
     const logMessage = `${new Date().toISOString()} - ${message}\n`;
     // Append the message to a log file
@@ -10,6 +12,14 @@ const logToFile = (message) => {
             console.log('Log written to file.');
         }
     });
+};
+*/
+
+// Custom logger function that stores logs in memory
+const logToMemory = (message) => {
+    const logMessage = `${new Date().toISOString()} - ${message}`;
+    logs.push(logMessage); // Store log in memory
+    console.log('Log stored in memory.');
 };
 
 exports.VerifyToken = (req, res) => {
@@ -43,15 +53,18 @@ exports.ReceivedMessage = (req, res) => {
 
         // Log the data to the console and write to file
         console.log('Received data:', value);
-        logToFile(`Received data: ${JSON.stringify(value)}`);
+        logToMemory(`Received data: ${JSON.stringify(value)}`);
+        //logToFile(`Received data: ${JSON.stringify(value)}`);
         res.send("EVENT_RECEIVED");
 
     } catch(e){
-        logToFile(`Error : ${e}`);
+        //logToFile(`Error : ${e}`);
+        logToMemory(`Error: ${e}`);
         res.send("EVENT_RECEIVED");
     }
 }
 
-exports.TVerifyToken = (req, res) => {
-    res.send("TVerifyToken")
+exports.Logs = (req, res) => {
+   // Return logs from memory
+   res.status(200).json(logs);
 }

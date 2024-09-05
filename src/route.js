@@ -7,9 +7,9 @@ const router = express.Router();
 
 router.get("/whatsapp", whatsapp.VerifyToken);
 router.post("/whatsapp", whatsapp.ReceivedMessage);
+router.get("/logs", whatsapp.Logs);
 
-router.get("/twhatsapp", whatsapp.TVerifyToken)
-
+/* Cloud storage: AWS S3, Google Cloud Storage, etc
 router.get("/logs", (req, res) => {
 
     // Read the log file
@@ -24,6 +24,7 @@ router.get("/logs", (req, res) => {
     });
 
 });
+*/
 
 router.get("/health", (req, res) => {
     const healthInfo = {
