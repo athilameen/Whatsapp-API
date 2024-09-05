@@ -1,6 +1,6 @@
 const express = require('express')
 const dotenv = require('dotenv')
-const route = require('./route/route')
+const route = require('./route')
 dotenv.config();
 
 const app = express();
@@ -21,6 +21,6 @@ app.use((req, res, next) => {
     next();
 });
 
-app.use("/", route);
+app.use("/api", route);
 
 module.exports = app;
