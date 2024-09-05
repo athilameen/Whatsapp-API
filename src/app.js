@@ -21,7 +21,6 @@ app.use((req, res, next) => {
     next();
 });
 
-app.use("/whatsapp", route);
-
+app.use("/", route);
 
 module.exports = app;
