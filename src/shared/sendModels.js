@@ -137,7 +137,7 @@ function sendList(number){
                 "text": "by DE"
             },
             "action": {
-                "button": "Select your favorite food",
+                "button": "Select favorite food",
                 "sections": [
                     {
                         "title": "Vegetarian",
