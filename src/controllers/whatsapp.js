@@ -1,6 +1,18 @@
 const fs = require('fs');
 //const myConsole = new console.Console(fs.createWriteStream('./log.txt'));
 
+const logToFile = (message) => {
+    const logMessage = `${new Date().toISOString()} - ${message}\n`;
+    // Append the message to a log file
+    fs.appendFile('logs.txt', logMessage, (err) => {
+        if (err) {
+            console.error('Failed to write to log file:', err);
+        } else {
+            console.log('Log written to file.');
+        }
+    });
+};
+
 exports.VerifyToken = (req, res) => {
 
     try{
@@ -31,6 +43,9 @@ exports.ReceivedMessage = (req, res) => {
         const messageObject = JSON.parse(messageString);
 
         //myConsole.log(messageString);
+        // Log the data to the console and write to file
+        console.log('Received data:', value);
+        logToFile(`Received data: ${JSON.stringify(value)}`);
         res.send("EVENT_RECEIVED");
 
     } catch(e){
