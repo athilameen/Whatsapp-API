@@ -6,7 +6,7 @@ const whatsapp = require("./controllers/whatsapp");
 const router = express.Router();
 
 //router.get("/whatsapp", whatsappController.VerifyToken);
-//router.post("/whatsapp", whatsappController.ReceivedMessage);
+router.post("/whatsapp", whatsapp.ReceivedMessage);
 
 router.get("/twhatsapp", whatsapp.TVerifyToken)
 //router.post("/twhatsapp", whatsapp.TReceivedMessage);
