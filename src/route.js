@@ -10,19 +10,17 @@ router.post("/whatsapp", whatsapp.ReceivedMessage);
 
 router.get("/twhatsapp", whatsapp.TVerifyToken)
 
-router.get("/log", (req, res) => {
-    
-    // Path to the text file
-    const filePath = './log.txt';
+router.get("/logs", (req, res) => {
 
-    // Read the file
-    fs.readFile(filePath, 'utf8', (err, data) => {
+    // Read the log file
+    fs.readFile('logs.txt', 'utf8', (err, data) => {
         if (err) {
-            console.error('Error reading the file', err);
-            return res.status(500).send('Failed to read the file');
+            // If an error occurs (e.g., file not found), send an error response
+            return res.status(500).json({ message: 'Error reading log file', error: err });
         }
-        // Send the file content as a response
-        res.send(data);
+
+        // Send the file content as the response
+        res.status(200).send(data);
     });
 
 });

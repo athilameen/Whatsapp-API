@@ -1,5 +1,4 @@
 const fs = require('fs');
-//const myConsole = new console.Console(fs.createWriteStream('./log.txt'));
 
 const logToFile = (message) => {
     const logMessage = `${new Date().toISOString()} - ${message}\n`;
@@ -42,14 +41,13 @@ exports.ReceivedMessage = (req, res) => {
         const messageString = JSON.stringify(value);
         const messageObject = JSON.parse(messageString);
 
-        //myConsole.log(messageString);
         // Log the data to the console and write to file
         console.log('Received data:', value);
         logToFile(`Received data: ${JSON.stringify(value)}`);
         res.send("EVENT_RECEIVED");
 
     } catch(e){
-        //myConsole.log(e);
+        logToFile(`Error : ${e}`);
         res.send("EVENT_RECEIVED");
     }
 }
