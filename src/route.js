@@ -1,10 +1,12 @@
 const { Router } = require('express')
+const os = require('os')
 const fs = require('fs');
-const routes = Router();
-const whatsappController = require("./controllers/WhatsappControllers")
+//const whatsappController = require("./controllers/WhatsappControllers");
 
-routes.get("/whatsapp", whatsappController.VerifyToken).post("/whatsapp", whatsappController.ReceivedMessage);
-routes.get("/twhatsapp", whatsappController.TVerifyToken).post("/twhatsapp", whatsappController.TReceivedMessage);
+const routes = Router();
+
+//routes.get("/whatsapp", whatsappController.VerifyToken).post("/whatsapp", whatsappController.ReceivedMessage);
+//routes.get("/twhatsapp", whatsappController.TVerifyToken).post("/twhatsapp", whatsappController.TReceivedMessage);
 
 routes.get("/log", (req, res) => {
     
@@ -22,4 +24,19 @@ routes.get("/log", (req, res) => {
     });
 
 });
+
+routes.get("/health", (req, res) => {
+    const healthInfo = {
+        uptime: process.uptime(),
+        message: "OK",
+        timestamp: Date.now(),
+        hostname: os.hostname(),
+        platform: os.platform(),
+        pid: process.pid,
+        version: process.version,
+        memory: process.memoryUsage(),
+    };
+    res.send(healthInfo);
+});
+
 module.exports = routes;
