@@ -1,5 +1,5 @@
 const fs = require('fs');
-const myConsole = new console.Console(fs.createWriteStream('./log.txt'));
+//const myConsole = new console.Console(fs.createWriteStream('./log.txt'));
 
 exports.ReceivedMessage = (req, res) => {
     res.send("EVENT_RECEIVED");
