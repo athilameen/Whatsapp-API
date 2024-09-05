@@ -1,12 +1,6 @@
-const express = require("express");
-const apiRoute = require("./routes/routes");
+const http = require('http');
+const app = require('./app');
 
-const app = express();
-
-app.use(express.json());
-app.use("/whatsapp", apiRoute);
-
-const PORT = process.env.PORT || 3000;
-app.listen(PORT, () => {
-    console.log(PORT + " port is running");
-})
+const port = process.env.PORT || 30;
+const server = http.createServer(app);
+server.listen(port);
