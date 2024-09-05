@@ -52,8 +52,10 @@ exports.ReceivedMessage = (req, res) => {
         const messageObject = JSON.parse(messageString);
 
         // Log the data to the console and write to file
-        console.log('Received data:', value);
-        logToMemory(`Received data: ${JSON.stringify(value)}`);
+        //console.log('Received data:', value);
+        let getData = getTextUser(value);
+        logToMemory(`Received data: ${getData}`);
+        //logToMemory(`Received data: ${JSON.stringify(value)}`);
         //logToFile(`Received data: ${JSON.stringify(value)}`);
         res.send("EVENT_RECEIVED");
 
@@ -67,4 +69,32 @@ exports.ReceivedMessage = (req, res) => {
 exports.Logs = (req, res) => {
    // Return logs from memory
    res.status(200).json(logs);
+}
+
+const getTextUser = (getMessage) => {
+    
+    let text = "";
+    const message = getMessage['messages'][0];
+    let typeMessage = message['type'];    
+
+    if(typeMessage === "text"){
+        text = (message['text'])['body'];
+    } else if(typeMessage === "interactive"){
+
+        let interactiveObject = message['interactive'];
+        let typeInteractive = interactiveObject['type'];
+
+        if(typeInteractive === "button_reply"){
+            text = (interactiveObject['button_reply'])['title'];
+        } else if(typeInteractive === "list_reply"){
+            text = (interactiveObject['list_reply'])['title'];
+        } else {
+            text = "No message";
+        }
+
+    } else {
+        text = "No message.";
+    }
+
+    return text;
 }
