@@ -47,16 +47,15 @@ exports.ReceivedMessage = (req, res) => {
         let entry = (req.body['entry'])[0];
         let changes = (entry['changes'])[0];
         let value = changes["value"];
+        let messageObject = value['messages'];
 
-        const messageString = JSON.stringify(value);
-        const messageObject = JSON.parse(messageString);
-
-        // Log the data to the console and write to file
-        //console.log('Received data:', value);
-        let getData = getTextUser(value);
-        logToMemory(`Received data: ${getData}`);
-        //logToMemory(`Received data: ${JSON.stringify(value)}`);
-        //logToFile(`Received data: ${JSON.stringify(value)}`);
+        if(typeof messageObject != "undefined"){
+            let messages = messageObject[0];
+            let getData = getTextUser(messages);
+            logToMemory(`Received data: ${getData}`);
+            //logToFile(`Received data: ${JSON.stringify(value)}`);
+        }
+        
         res.send("EVENT_RECEIVED");
 
     } catch(e){
@@ -71,10 +70,9 @@ exports.Logs = (req, res) => {
    res.status(200).json(logs);
 }
 
-const getTextUser = (getMessage) => {
+const getTextUser = (message) => {
     
     let text = "";
-    const message = getMessage['messages'][0];
     let typeMessage = message['type'];    
 
     if(typeMessage === "text"){
@@ -93,7 +91,7 @@ const getTextUser = (getMessage) => {
         }
 
     } else {
-        text = "No message.";
+        text = "No message. ";
     }
 
     return text;
