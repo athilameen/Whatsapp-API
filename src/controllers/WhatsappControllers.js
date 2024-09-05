@@ -22,7 +22,7 @@ const VerifyToken = (req, res) => {
 }
 
 const ReceivedMessage = (req, res) => {
-    
+    /*
     try{
 
         let entry = (req.body['entry'])[0];
@@ -39,6 +39,7 @@ const ReceivedMessage = (req, res) => {
         myConsole.log(e);
         res.send("EVENT_RECEIVED");
     }
+    */
 
 }
 
