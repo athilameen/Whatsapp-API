@@ -61,7 +61,7 @@ exports.ReceivedMessage = async (req, res) => {
             const number = messages['from'];
 
             if(messageData){
-                processMessage.process(messageData, number);
+                await processMessage.process(messageData, number);
             }
             
             /* const sendType = messageData;
