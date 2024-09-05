@@ -44,7 +44,7 @@ exports.VerifyToken = (req, res) => {
 
 }
 
-exports.ReceivedMessage = (req, res) => {
+exports.ReceivedMessage = async (req, res) => {
     try{
         let entry = (req.body['entry'])[0];
         let changes = (entry['changes'])[0];
@@ -57,7 +57,7 @@ exports.ReceivedMessage = (req, res) => {
             logToMemory(`Received data: ${messageData}`);
             //logToFile(`Received data: ${JSON.stringify(value)}`);
             const number = messages['from'];
-            whatsappService(messageData, number)
+            await whatsappService(messageData, number)
                 //.then(response => console.log('Success:', response))
                 //.catch(err => console.error('Request failed:', err));
         }
