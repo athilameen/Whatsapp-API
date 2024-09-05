@@ -1,7 +1,7 @@
 const express = require("express");
 const os = require('os')
 const fs = require('fs');
-//const whatsappController = require("./controllers/WhatsappControllers");
+const whatsappController = require("./controllers/WhatsappControllers");
 
 const router = express.Router();
 
@@ -14,7 +14,7 @@ const router = express.Router();
 router.get("/log", (req, res) => {
     
     // Path to the text file
-    const filePath = '../log.txt';
+    const filePath = './log.txt';
 
     // Read the file
     fs.readFile(filePath, 'utf8', (err, data) => {
