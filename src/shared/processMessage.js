@@ -26,6 +26,12 @@ async function process(textUser, number){
     } else if(textUser.includes("meals")){
         const model = whatsappModel.messageText("Go here and enjoy your meals https://www.federalistpig.com", number);
         models.push(model);
+    } else if(textUser.includes("agency")){
+        const model = whatsappModel.messageLocation(number);
+        models.push(model);
+    } else if(textUser.includes("contact")){
+        const model = whatsappModel.messageText("Call with us:*\n+97142225474 ", number);
+        models.push(model);
     } else if(textUser.includes("bye") || textUser.includes("good bye")){
         const model = whatsappModel.messageText("Goodbye! Have a great day!", number);
         models.push(model);

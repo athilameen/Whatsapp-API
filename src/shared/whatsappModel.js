@@ -39,7 +39,7 @@ function messageList(number){
                             {
                                 "id": "full-meals",
                                 "title": "Full Meals",
-                                "description": "Explore The Best Full Sapdu" 
+                                "description": "Explore The Best Full Meals" 
                             },
                             {
                                 "id": "curd-rice",
@@ -60,6 +60,21 @@ function messageList(number){
                                 "id": "chicken-noodles",
                                 "title": "Chicken Noodles",
                                 "description": "Explore The Best Chicken Noodles" 
+                            }
+                        ]
+                    },
+                    {
+                        "title": "Digital Evolutions",
+                        'rows': [
+                            {
+                                "id": "agency",
+                                "title": "Agency",
+                                "description": "Digital Evolutions in Dubai" 
+                            },
+                            {
+                                "id": "contact",
+                                "title": "Contact",
+                                "description": "Feel free contact at any time" 
                             }
                         ]
                     }
@@ -115,8 +130,27 @@ function messageBuy(number){
 
 }
 
+function messageLocation(number){
+
+    const data = {
+        "messaging_product": "whatsapp",
+        "to": number,
+        "type":"location",
+        "location":{
+            "latitude": "13.08118784628054",
+            "longitude": "80.28761298672104",
+            "name": "Fort St George",
+            "address": "Chennai, Tamil Nadu"
+        }
+    };
+
+    return data;
+
+}
+
 module.exports = {
     messageText,
     messageList,
-    messageBuy
+    messageBuy,
+    messageLocation
 }
