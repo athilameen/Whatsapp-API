@@ -23,7 +23,7 @@ async function process(textUser, number){
     } else if(textUser.includes("buy")){
         const model = whatsappModel.messageBuy(number);
         models.push(model);
-    } else if(textUser.includes("full-meals")){
+    } else if(textUser.includes("meals")){
         const model = whatsappModel.messageText("Go here and sell your products https://www.olx.com", number);
         models.push(model);
     } else if(textUser.includes("bye") || textUser.includes("good bye")){
