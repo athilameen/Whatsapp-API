@@ -38,7 +38,7 @@ function messageList(number){
                         'rows': [
                             {
                                 "id": "full-meals",
-                                "title": "Full Sapdu",
+                                "title": "Full Meals",
                                 "description": "Explore The Best Full Sapdu" 
                             },
                             {
