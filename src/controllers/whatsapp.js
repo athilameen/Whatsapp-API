@@ -58,7 +58,7 @@ exports.ReceivedMessage = async (req, res) => {
             const number = messages['from'];
 
             if(messageData){
-                logToMemory(`Received data: ${messageData} in this number ${number}`);
+                logToMemory(`Received data: ${messageData} => ${number}`);
                 //logToFile(`Received data: ${JSON.stringify(value)}`);
                 await processMessage.process(messageData, number);
             }
