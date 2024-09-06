@@ -6,6 +6,9 @@ async function process(textUser, number){
     textUser = textUser.toLowerCase();
     let models = [];
 
+    console.log(textUser);
+    
+
     if(textUser.includes("hi")){
         const model = whatsappModel.messageText("Hi! How can I help you today?", number);
         models.push(model);
@@ -17,6 +20,12 @@ async function process(textUser, number){
         models.push(model);
         const list = whatsappModel.messageList(number);
         models.push(list);
+    } else if(textUser.includes("buy")){
+        const model = whatsappModel.messageBuy(number);
+        models.push(model);
+    } else if(textUser.includes("full-meals")){
+        const model = whatsappModel.messageText("Go here and sell your products https://www.olx.com", number);
+        models.push(model);
     } else if(textUser.includes("bye") || textUser.includes("good bye")){
         const model = whatsappModel.messageText("Goodbye! Have a great day!", number);
         models.push(model);

@@ -4,6 +4,7 @@ function messageText(message, number){
         "to": number,
         "type":"text",
         "text":{
+            "preview_url": true,
             "body": message
         }
     };
@@ -71,7 +72,51 @@ function messageList(number){
 
 }
 
+function messageBuy(number){
+
+    const data = {
+        "messaging_product": "whatsapp",
+        "to": number,
+        "type":"interactive",
+        "interactive": {
+            "type": "button",
+            "header": {
+            "type": "text",
+            "text": "Buy a Product"
+            },
+            "body": {
+            "text": "You can purchase via one click"
+            },
+            "footer": {
+            "text": "by DE"
+            },
+            "action": {
+            "buttons": [
+                {
+                "type": "reply",
+                "reply": {
+                    "id": "laptop",
+                    "title": "Laptop" 
+                }
+                },
+                {
+                "type": "reply",
+                "reply": {
+                    "id": "computer",
+                    "title": "Computer" 
+                }
+                }
+            ] 
+            }
+        }
+    };
+
+    return data;
+
+}
+
 module.exports = {
     messageText,
-    messageList
+    messageList,
+    messageBuy
 }
