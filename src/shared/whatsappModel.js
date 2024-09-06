@@ -22,49 +22,34 @@ function messageList(number){
             "type": "list",
             "header": {
                 "type": "text",
-                "text": "Food Festival"
+                "text": "Digital Evolutions"
             },
             "body": {
-                "text": "We have multiple food items"
+                "text": "We have doing multiple services"
             },
             "footer": {
                 "text": "by DE"
             },
             "action": {
-                "button": "Select favorite food",
+                "button": "Select Services",
                 "sections": [
                     {
-                        "title": "Vegetarian",
-                        'rows': [
-                            {
-                                "id": "full-meals",
-                                "title": "Full Meals",
-                                "description": "Explore The Best Full Meals" 
-                            },
-                            {
-                                "id": "curd-rice",
-                                "title": "Curd Rice",
-                                "description": "Explore The Best Curd Rice" 
-                            }
-                        ]
-                    },
-                    {
-                        "title": "Non-Vegetarian",
-                        'rows': [
-                            {
-                                "id": "biryani",
-                                "title": "Biryani",
-                                "description": "Explore The Best Mutton Biryani" 
-                            },
-                            {
-                                "id": "chicken-noodles",
-                                "title": "Chicken Noodles",
-                                "description": "Explore The Best Chicken Noodles" 
-                            }
-                        ]
-                    },
-                    {
                         "title": "Digital Evolutions",
+                        'rows': [
+                            {
+                                "id": "de-web",
+                                "title": "Website",
+                                "description": "We’ve spent the last 2 decades as web designers in Dubai" 
+                            },
+                            {
+                                "id": "pricing",
+                                "title": "Pricing",
+                                "description": "Price catalog" 
+                            }
+                        ]
+                    },
+                    {
+                        "title": "Connect with us",
                         'rows': [
                             {
                                 "id": "agency",
@@ -87,7 +72,7 @@ function messageList(number){
 
 }
 
-function messageBuy(number){
+function messageProducts(number){
 
     const data = {
         "messaging_product": "whatsapp",
@@ -113,13 +98,6 @@ function messageBuy(number){
                     "id": "laptop",
                     "title": "Laptop" 
                 }
-                },
-                {
-                    "type": "reply",
-                    "reply": {
-                        "id": "laptop-catalog",
-                        "title": "Laptop Catalog" 
-                    }
                 },
                 {
                 "type": "reply",
@@ -227,7 +205,7 @@ function messageDocument(number){
 module.exports = {
     messageText,
     messageList,
-    messageBuy,
+    messageProducts,
     messageLocation,
     messageImage,
     messageAudio,

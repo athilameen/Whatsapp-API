@@ -12,16 +12,16 @@ async function process(textUser, number){
     } else if(textUser.includes("hello")){
         const model = whatsappModel.messageText("Hello! How may I assist you?", number);
         models.push(model);
-    } else if(textUser.includes("event")){
-        const model = whatsappModel.messageText("Yes! Food festival going", number);
-        models.push(model);
+    } else if(textUser.includes("about")){
+        const model = whatsappModel.messageText("Web design and development services along with other e-commerce solutions Our in-house team of web designers and developers are experts in what they do and pride themselves in building beautiful online experiences.", number);
+        await models.push(model);
         const list = whatsappModel.messageList(number);
         models.push(list);
-    } else if(textUser.includes("buy")){
-        const model = whatsappModel.messageBuy(number);
+    } else if(textUser.includes("products")){
+        const model = whatsappModel.messageProducts(number);
         models.push(model);
-    } else if(textUser.includes("meals")){
-        const model = whatsappModel.messageText("Go here and enjoy your meals https://www.federalistpig.com", number);
+    } else if(textUser.includes("website")){
+        const model = whatsappModel.messageText("Go here https://digitalevolutions.ae/", number);
         models.push(model);
     } else if(textUser.includes("agency")){
         const model = whatsappModel.messageLocation(number);
@@ -32,7 +32,7 @@ async function process(textUser, number){
     } else if(textUser.includes("laptop")){
         const model = whatsappModel.messageImage(number);
         models.push(model);
-    } else if(textUser.includes("catalog")){
+    } else if(textUser.includes("pricing")){
         const model = whatsappModel.messageDocument(number);
         models.push(model);
     } else if(textUser.includes("computer")){
