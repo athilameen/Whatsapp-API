@@ -56,11 +56,12 @@ exports.ReceivedMessage = async (req, res) => {
         if(typeof messageObject != "undefined"){
             let messages = messageObject[0];
             let messageData = getTextUser(messages);
-            logToMemory(`Received data: ${messageData}`);
-            //logToFile(`Received data: ${JSON.stringify(value)}`);
+            
             const number = messages['from'];
 
             if(messageData){
+                logToMemory(`Received data: ${messageData} in this number ${number}`);
+                //logToFile(`Received data: ${JSON.stringify(value)}`);
                 await processMessage.process(messageData, number);
             }
             

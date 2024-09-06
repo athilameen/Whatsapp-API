@@ -137,10 +137,10 @@ function messageLocation(number){
         "to": number,
         "type":"location",
         "location":{
-            "latitude": "13.08118784628054",
-            "longitude": "80.28761298672104",
-            "name": "Fort St George",
-            "address": "Chennai, Tamil Nadu"
+            "latitude": "25.252930286015317",
+            "longitude": "55.30157486245174",
+            "name": "Digital Evolutions",
+            "address": "Burjuman Business Center Floor 13, Office 56 - Dubai - United Arab Emirates"
         }
     };
 
