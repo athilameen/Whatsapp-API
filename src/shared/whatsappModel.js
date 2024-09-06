@@ -38,8 +38,8 @@ function messageList(number){
                         'rows': [
                             {
                                 "id": "full-meals",
-                                "title": "Full Meals",
-                                "description": "Explore The Best Full Meals" 
+                                "title": "Full Sapdu",
+                                "description": "Explore The Best Full Sapdu" 
                             },
                             {
                                 "id": "curd-rice",

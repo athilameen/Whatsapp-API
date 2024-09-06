@@ -144,8 +144,8 @@ function sendList(number){
                         'rows': [
                             {
                                 "id": "full-meals",
-                                "title": "Full Sapdu",
-                                "description": "Explore The Best Full Sapdu" 
+                                "title": "Full Meals",
+                                "description": "Explore The Best Full Meals" 
                             },
                             {
                                 "id": "curd-rice",
