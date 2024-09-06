@@ -1,6 +1,4 @@
 const fs = require('fs');
-//const {whatsappService} = require('../services/whatsappService');
-//const sendON = require('../shared/sendModels');
 const processMessage = require("../shared/processMessage");
 
 let logs = [];
@@ -64,40 +62,7 @@ exports.ReceivedMessage = async (req, res) => {
                 //logToFile(`Received data: ${JSON.stringify(value)}`);
                 await processMessage.process(messageData, number);
             }
-            
-            /* const sendType = messageData;
-            if(sendType === "text"){
-                const data = sendON.sendText("I am a "+messageData, number);
-                await whatsappService(data)
-            } else if(sendType === "image"){
-                const data = sendON.sendImage(number);
-                await whatsappService(data)
-            } else if(sendType === "audio"){
-                const data = sendON.sendAudio(number);
-                await whatsappService(data)
-            } else if(sendType === "video"){
-                const data = sendON.sendVideo(number);
-                await whatsappService(data)
-            } else if(sendType === "document"){
-                const data = sendON.sendDocument(number);
-                await whatsappService(data)
-            } else if(sendType === "button"){
-                const data = sendON.sendButtons(number);
-                await whatsappService(data)
-            } else if(sendType === "list"){
-                const data = sendON.sendList(number);
-                await whatsappService(data)
-            } else if(sendType === "location"){
-                const data = sendON.sendLocation(number);
-                await whatsappService(data)
-            } else {
-                const data = sendON.sendText("Don't understand", number);
-                await whatsappService(data)
-            }*/
-
-            //await whatsappService(messageData, number)
-            //.then(response => console.log('Success:', response))
-            //.catch(err => console.error('Request failed:', err));
+        
         }
         
         res.send("EVENT_RECEIVED");

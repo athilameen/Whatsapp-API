@@ -4,10 +4,7 @@ const {whatsappService} = require("../services/whatsappService");
 async function process(textUser, number){
 
     textUser = textUser.toLowerCase();
-    let models = [];
-
-    console.log(textUser);
-    
+    let models = [];    
 
     if(textUser.includes("hi")){
         const model = whatsappModel.messageText("Hi! How can I help you today?", number);
@@ -32,6 +29,18 @@ async function process(textUser, number){
     } else if(textUser.includes("contact")){
         const model = whatsappModel.messageText("Call with us:*\n+97142225474 ", number);
         models.push(model);
+    } else if(textUser.includes("laptop")){
+        const model = whatsappModel.messageImage(number);
+        models.push(model);
+    } else if(textUser.includes("catalog")){
+        const model = whatsappModel.messageDocument(number);
+        models.push(model);
+    } else if(textUser.includes("computer")){
+        const model = whatsappModel.messageVideo(number);
+        models.push(model);
+    } else if(textUser.includes("headphone")){
+        const model = whatsappModel.messageAudio(number);
+        models.push(model);
     } else if(textUser.includes("bye") || textUser.includes("good bye")){
         const model = whatsappModel.messageText("Goodbye! Have a great day!", number);
         models.push(model);
@@ -46,6 +55,7 @@ async function process(textUser, number){
     const promises = [];
     models.forEach(model => {
         promises.push(whatsappService(model));
+        //whatsappService(model).then(response => console.log('Success:', response)).catch(err => console.error('Request failed:', err));
     });
 
     await Promise.all(promises);

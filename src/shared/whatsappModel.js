@@ -115,12 +115,26 @@ function messageBuy(number){
                 }
                 },
                 {
+                    "type": "reply",
+                    "reply": {
+                        "id": "laptop-catalog",
+                        "title": "Laptop Catalog" 
+                    }
+                },
+                {
                 "type": "reply",
-                "reply": {
-                    "id": "computer",
-                    "title": "Computer" 
-                }
-                }
+                    "reply": {
+                        "id": "computer",
+                        "title": "Computer" 
+                    }
+                },
+                {
+                    "type": "reply",
+                    "reply": {
+                        "id": "headphone",
+                        "title": "Headphone" 
+                    }
+                },
             ] 
             }
         }
@@ -148,9 +162,75 @@ function messageLocation(number){
 
 }
 
+function messageImage(number){
+
+    const data = {
+        "messaging_product": "whatsapp",
+        "to": number,
+        "type":"image",
+        "image":{
+            "link": "https://img.lovepik.com/element/45012/8521.png_860.png"
+        }
+    };
+
+    return data;
+
+}
+
+function messageAudio(number){
+
+    const data = {
+        "messaging_product": "whatsapp",
+        "to": number,
+        "type":"audio",
+        "audio":{
+            "link": "https://samplelib.com/lib/preview/mp3/sample-3s.mp3"
+        }
+    };
+
+    return data;
+
+}
+
+function messageVideo(number){
+
+    const data = {
+        "messaging_product": "whatsapp",
+        "to": number,
+        "type":"video",
+        "video":{
+            "link": "https://samplelib.com/lib/preview/mp4/sample-5s.mp4",
+            "caption": "Sample Video"
+        }
+    };
+
+    return data;
+
+}
+
+function messageDocument(number){
+
+    const data = {
+        "messaging_product": "whatsapp",
+        "to": number,
+        "type":"document",
+        "document":{
+            "link": "https://pdfobject.com/pdf/sample.pdf",
+            "caption": "Sample PDF File"
+        }
+    };
+
+    return data;
+
+}
+
 module.exports = {
     messageText,
     messageList,
     messageBuy,
-    messageLocation
+    messageLocation,
+    messageImage,
+    messageAudio,
+    messageVideo,
+    messageDocument,
 }
